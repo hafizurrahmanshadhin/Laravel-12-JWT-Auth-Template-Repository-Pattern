@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Interface\Api\V1\Auth\ForgetPasswordRepositoryInterface;
-use App\Interface\Api\V1\Auth\OTPRepositoryInterface;
-use App\Interface\Api\V1\Auth\PasswordRepositoryInterface;
-use App\Interface\Api\V1\Auth\UserRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\ForgetPasswordRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\OTPRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\PasswordRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\UserRepositoryInterface;
 use App\Repositories\Api\V1\Auth\ForgetPasswordRepository;
 use App\Repositories\Api\V1\Auth\OTPRepository;
 use App\Repositories\Api\V1\Auth\PasswordRepository;

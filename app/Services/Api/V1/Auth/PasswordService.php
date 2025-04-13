@@ -2,7 +2,7 @@
 
 namespace App\Services\Api\V1\Auth;
 
-use App\Interface\Api\V1\Auth\PasswordRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\PasswordRepositoryInterface;
 use App\Models\User;
 
 use Exception;

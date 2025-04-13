@@ -2,8 +2,8 @@
 
 namespace App\Services\Api\V1\Auth;
 
-use App\Interface\Api\V1\Auth\OTPRepositoryInterface;
-use App\Interface\Api\V1\Auth\UserRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\OTPRepositoryInterface;
+use App\Interfaces\Api\V1\Auth\UserRepositoryInterface;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;

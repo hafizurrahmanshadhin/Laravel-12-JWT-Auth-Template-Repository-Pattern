@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interface\Api\V1\Auth;
+namespace App\Interfaces\Api\V1\Auth;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
