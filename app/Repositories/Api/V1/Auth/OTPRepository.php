@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Exceptions\OTPExpiredException;
 use App\Exceptions\OTPMismatchException;
 use App\Exceptions\UserAlreadyVarifiedException;
+use App\Interface\Api\V1\Auth\OTPRepositoryInterface;
 use App\Jobs\SendOTPEmail;
 use App\Mail\OTPMail;
 use Exception;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Api\V1\Auth;
 
-use App\Rules\Api\Auth\Validatepassword;
+use App\Rules\Api\V1\Auth\Validatepassword;
 use App\Traits\V1\ApiResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;

@@ -2,6 +2,14 @@
 
 namespace App\Providers;
 
+use App\Interface\Api\V1\Auth\ForgetPasswordRepositoryInterface;
+use App\Interface\Api\V1\Auth\OTPRepositoryInterface;
+use App\Interface\Api\V1\Auth\PasswordRepositoryInterface;
+use App\Interface\Api\V1\Auth\UserRepositoryInterface;
+use App\Repositories\Api\V1\Auth\ForgetPasswordRepository;
+use App\Repositories\Api\V1\Auth\OTPRepository;
+use App\Repositories\Api\V1\Auth\PasswordRepository;
+use App\Repositories\Api\V1\Auth\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +19,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-
+        // auth
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(ForgetPasswordRepositoryInterface::class, ForgetPasswordRepository::class);
+        $this->app->bind(OTPRepositoryInterface::class, OTPRepository::class);
+        $this->app->bind(PasswordRepositoryInterface::class, PasswordRepository::class);
     }
 
     /**

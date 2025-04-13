@@ -3,8 +3,9 @@
 namespace App\Services\Api\V1\Auth;
 
 use App\Exceptions\OtpNotVerifiedException;
+use App\Interface\Api\V1\Auth\ForgetPasswordRepositoryInterface;
 use App\Models\User;
-use App\Repositories\Api\V1\Auth\ForgetPasswordRepositoryInterface;
+
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;

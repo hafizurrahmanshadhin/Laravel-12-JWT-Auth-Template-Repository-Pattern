@@ -2,8 +2,9 @@
 
 namespace App\Services\Api\V1\Auth;
 
+use App\Interface\Api\V1\Auth\PasswordRepositoryInterface;
 use App\Models\User;
-use App\Repositories\Api\V1\Auth\PasswordRepositoryInterface;
+
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;

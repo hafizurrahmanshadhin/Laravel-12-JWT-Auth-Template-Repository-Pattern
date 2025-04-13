@@ -10,11 +10,10 @@ interface UserRepositoryInterface
     /**
      * Creates a new user with the provided credentials.
      * @param array $credentials
-     * @param int $businessId
      * @param int $role
      * @return void
      */
-    public function createUser(array $credentials, int $businessId = null, int $role = 2,):User;
+    public function createUser(array $credentials,int $role = 2,):User;
 
     /**
      * Attempts to retrieve a user by their login credentials.

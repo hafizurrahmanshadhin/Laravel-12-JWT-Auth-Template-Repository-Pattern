@@ -28,12 +28,10 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'email'      => "required|email|unique:users",
             'first_name' => "required|string",
             'last_name'  => "required|string",
-            'email'      => "required|email|unique:users",
             'password'   => "required|confirmed",
-            'licence'    => "required|string|unique:businesses,licence",
-            'ecar_id'    => "required|string|unique:businesses,ecar_id",
         ];
     }
 
@@ -57,12 +55,6 @@ class RegisterRequest extends FormRequest
 
             'password.required'  => 'Password is required.',
             'password.confirmed' => 'Passwords do not match.',
-
-            'licence.required' => 'Last licence is required.',
-            'licence.string'   => 'Last licence must be a string.',
-
-            'ecar_id.required' => 'Last ecar id is required.',
-            'ecar_id.string'   => 'Last ecar id must be a string.',
         ];
     }
 
@@ -89,8 +81,6 @@ class RegisterRequest extends FormRequest
         $lastNameErrors = $validator->errors()->get('last_name') ?? null;
         $emailErrors = $validator->errors()->get('email') ?? null;
         $passwordErrors = $validator->errors()->get('password') ?? null;
-        $licence = $validator->errors()->get('licence') ?? null;
-        $ecar_id = $validator->errors()->get('ecar_id') ?? null;
 
         if ($firstNameErrors) {
             $message = $firstNameErrors[0];
@@ -100,10 +90,6 @@ class RegisterRequest extends FormRequest
             $message = $emailErrors[0];
         } else if ($passwordErrors) {
             $message = $passwordErrors[0];
-        } else if ($licence) {
-            $message = $licence[0];
-        } else if ($ecar_id) {
-            $message = $ecar_id[0];
         }
 
         $response = $this->error(

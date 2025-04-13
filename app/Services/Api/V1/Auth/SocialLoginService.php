@@ -3,8 +3,7 @@
 namespace App\Services\Api\V1\Auth;
 
 use App\Exceptions\SocialLoginException;
-use App\Models\User;
-use App\Repositories\Api\V1\Auth\SocialLoginRepositoryInterface;
+use App\Interface\Api\V1\Auth\SocialLoginRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Illuminate\Support\Facades\Log;

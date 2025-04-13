@@ -21,10 +21,6 @@ class LoginResponce extends JsonResource
             'handle' => $data['user']['handle'],
             'email' => $data['user']['email'],
             'role' => $data['user']['role']['name'],
-            'phone' => $data['user']['profile']['phone'],
-            'date_of_birth' => $data['user']['profile']['date_of_birth'],
-            'address' => $data['user']['profile']['address'],
-            'bio' => $data['user']['profile']['bio'],
         ];
         return [
             'token' => $data['token'],

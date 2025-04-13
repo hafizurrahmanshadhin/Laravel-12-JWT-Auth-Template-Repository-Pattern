@@ -2,8 +2,8 @@
 
 namespace App\Services\Api\V1\Auth;
 
-use App\Repositories\Api\V1\Auth\OTPRepositoryInterface;
-use App\Repositories\Api\V1\Auth\UserRepositoryInterface;
+use App\Interface\Api\V1\Auth\OTPRepositoryInterface;
+use App\Interface\Api\V1\Auth\UserRepositoryInterface;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -54,7 +54,7 @@ class AuthService
             }
             DB::commit();
             $user->load(['profile' => function ($query) {
-                $query->select('id', 'user_id', 'phone', 'address', 'date_of_birth', 'bio');
+                $query->select('id', 'user_id');
             }, 'role']);
             return ['token' => $token, 'user' => $user, 'verify' => false];
         } catch (Exception $e) {
@@ -93,7 +93,7 @@ class AuthService
             }
 
             $user->load(['profile' => function ($query) {
-                $query->select('id', 'user_id', 'phone', 'address', 'date_of_birth', 'bio');
+                $query->select('id', 'user_id');
             }, 'role']);
 
             return ['token' => $token, 'user' => $user, 'verify' => $verify];

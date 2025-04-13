@@ -15,7 +15,7 @@ Route::prefix('/v1/auth')->name('api.auth.')->group(function () {
         // Authentication-related routes
         Route::controller(AuthController::class)->group(function () {
             Route::post('/login', 'login')->name('login');
-            Route::post('/register-admin', 'register')->name('register.admin');
+            Route::post('/register', 'register')->name('register');
         });
 
         // Password-related routes
@@ -53,10 +53,6 @@ Route::prefix('/v1/auth')->name('api.auth.')->group(function () {
         Route::controller(OTPController::class)->group(function () {
             Route::post('/otp-send', 'otpSend')->name('otp.send');
             Route::post('/otp-match', 'otpMatch')->name('otp.match');
-        });
-
-        Route::middleware(['admin'])->controller(AgentController::class)->group(function () {
-            Route::post('/register-agent', 'register')->name('register.agent');
         });
     });
 });
