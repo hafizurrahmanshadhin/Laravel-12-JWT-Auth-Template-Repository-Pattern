@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 
 class SocialLoginController extends Controller
 {
-    protected $socialLoginService;
+    protected SocialLoginService $socialLoginService;
 
     /**
      * Constructor for initializing the class with the SocialLoginService dependency.
