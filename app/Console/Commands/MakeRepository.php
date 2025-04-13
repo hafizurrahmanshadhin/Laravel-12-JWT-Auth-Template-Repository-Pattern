@@ -97,6 +97,8 @@ class MakeRepository extends Command
 
 namespace App\\Repositories{$namespace};
 
+use App\\Interfaces{$namespace}\\{$className}Interface;
+
 class {$className}{$implements}
 {
     // Your Repository logic goes here
