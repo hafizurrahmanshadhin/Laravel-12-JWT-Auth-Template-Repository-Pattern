@@ -48,6 +48,11 @@ class MakeRepository extends Command
             $this->filesystem->makeDirectory($directory, 0755, true);  // Create any missing directories
         }
 
+        // Modify the interface directory creation logic to ensure proper path separator
+        if (!$this->filesystem->exists($interfaceDirectory)) {
+            $this->filesystem->makeDirectory($interfaceDirectory, 0755, true);  // Create any missing directories
+        }
+
         // Define the path for the new Repository class file
         $path = $directory . DIRECTORY_SEPARATOR . "{$className}.php";
 
