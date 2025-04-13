@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\V1\Auth\AgentController;
 use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\ForgerPasswordController;
 use App\Http\Controllers\Api\V1\Auth\OTPController;
