@@ -36,11 +36,12 @@ class MakeRepository extends Command
     {
         $name = $this->argument('name');
         $namespace = str_replace('/', '\\', dirname($name));  // Get the namespace without the class name
-        $className = basename($name);  
+        $className = basename($name);
         $RepositoryClass = $this->generateRepositoryClass($name);
 
         // Define the full path to the Repositorys directory
         $directory = app_path("Repositories/{$namespace}");
+        $interfaceDirectory = app_path("Interfaces/{$namespace}");
 
         // Ensure the directory exists (create it if it doesn't)
         if (!$this->filesystem->exists($directory)) {
@@ -64,7 +65,7 @@ class MakeRepository extends Command
         // If the --interface option is passed, create an interface
         if ($this->option('interface')) {
             $InterfaceClass = $this->generateInterfaceClass($name);
-            $interfacePath = $directory . DIRECTORY_SEPARATOR . "{$className}Interface.php";
+            $interfacePath = $interfaceDirectory . DIRECTORY_SEPARATOR . "{$className}Interface.php";
 
             // Check if the Interface class already exists
             if ($this->filesystem->exists($interfacePath)) {
@@ -88,12 +89,12 @@ class MakeRepository extends Command
         $namespaceParts = array_slice($parts, 0, -1); // Get all parts except the last for the namespace
         $className = end($parts); // Get the last part as the class name
         $namespace = !empty($namespaceParts) ? '\\' . implode('\\', $namespaceParts) : '';
-    
+
         // Check if the --interface option was passed
         $implements = $this->option('interface') ? " implements {$className}Interface" : '';
-    
+
         return "<?php
-        
+
 namespace App\\Repositories{$namespace};
 
 class {$className}{$implements}
@@ -102,7 +103,7 @@ class {$className}{$implements}
 }
 ";
     }
-    
+
     /**
      * Generate the PHP code for an Interface class based on the given name.
      */
@@ -114,8 +115,8 @@ class {$className}{$implements}
         $namespace = !empty($namespaceParts) ? '\\' . implode('\\', $namespaceParts) : '';
 
         return "<?php
-    
-namespace App\\Repositories{$namespace};
+
+namespace App\\Interfaces{$namespace};
 
 interface {$className}Interface
 {
