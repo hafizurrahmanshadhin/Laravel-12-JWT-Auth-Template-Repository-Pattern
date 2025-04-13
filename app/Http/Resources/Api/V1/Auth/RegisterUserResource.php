@@ -16,6 +16,7 @@ class RegisterUserResource extends JsonResource
     {
         $data = parent::toArray($request);
         $user = [
+            'id' => $data['user']['id'],
             'first_name' => $data['user']['first_name'],
             'last_name' => $data['user']['last_name'],
             'handle' => $data['user']['handle'],
