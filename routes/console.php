@@ -38,3 +38,9 @@ Artisan::command('make:trait {name}', function($name) {
     // Call the MakeTrait command and pass the 'name' argument
     $this->call(MakeTrait::class, ['name' => $name]);
 });
+
+// whitespace check
+Artisan::command('check:whitespace', function () {
+    $this->call(CheckPhpFiles::class);
+});
+
